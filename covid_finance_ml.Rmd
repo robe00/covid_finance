@@ -1,0 +1,1709 @@
+---
+title: "Covid-19 Pandemic and the World of Finance"
+author: "Rolf Beutner, Bamberg, Bavaria, Germany"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    fig_caption: yes
+    toc: yes
+    number_sections: yes
+    toc_depth: 3
+  html_notebook:
+    fig_caption: yes
+    toc: yes
+    number_sections: yes
+    toc_depth: 3
+  tufte::tufte_html:
+    toc: yes
+  html_document:
+    toc: yes
+    toc_depth: '3'
+    df_print: paged
+link-citations: yes
+always_allow_html: yes
+references:
+- id: IRIZ0
+  author: R.A. Irizarry
+  title: Introduction to Data Science
+  issued:
+    year: 2021
+  URL: https://rafalab.github.io/dsbook/
+- id: YIHUI
+  author: Yihui Xie, Christophe Dervieux, Emily Riederer
+  title: R Markdown Cookbook
+  issued:
+    year: 2021
+  URL: https://bookdown.org/yihui/rmarkdown-cookbook/
+- id: FCI0
+  title: The World Bank Group's Response to the COVID-19 (coronavirus) Pandemic
+  issued:
+    year: 2021
+  URL: https://www.worldbank.org/en/who-we-are/news/coronavirus-covid19
+- id: FCI1
+  title: COVID-19 Finance Sector Related Policy Responses catalog
+  issued:
+    year: 2021
+  URL: https://datacatalog.worldbank.org/dataset/covid-19-finance-sector-related-policy-responses/
+- id: FCI2
+  title: COVID-19 Finance Sector Related Policy Responses data link / covid-fci-data.xlsx
+  issued:
+    year: 2021
+  URL: https://development-data-hub-s3-public.s3.amazonaws.com/ddhfiles/936261/covid-fci-data.xlsx
+- id: FCI4
+  title: COVID-19 (Coronavirus) Response
+  issued:
+    year: 2021
+  URL: https://www.worldbank.org/en/topic/health/coronavirus
+- id: IMF0
+  title: International Monetary Fund (IMF)
+  issued:
+    year: 2021
+  URL: https://www.imf.org
+- id: IMF1
+  title: Fiscal Policies Database / Fiscal-Policies-Database-in-Response-to-COVID-19, International Monetary Fund (IMF)
+  issued:
+    year: 2021
+  URL: https://www.imf.org/en/Topics/imf-and-covid19/Fiscal-Policies-Database-in-Response-to-COVID-19
+- id: IMF2
+  title: International Monetary Fund (IMF) COVID-FM-Database
+  issued:
+    year: 2021
+  URL: https://www.imf.org/en/Topics/imf-and-covid19/~/media/Files/Topics/COVID/FM-Database/SM21/revised-april-2021-fiscal-measures-response-database-publication-april-2021-v3"
+- id: IMF3
+  title: Definitions of Government in  IMF-Supported Programs
+  issued:
+    year: 2013
+  URL: https://www.imf.org/external/pubs/ft/tnm/2013/tnm1301.pdf
+- id: OWID0
+  title: Our World In Data (OWID)
+  issued:
+    year: 2021
+  URL: https://www.owid.org
+- id: SRAF0
+  title: Software Repository Accounting and Finance (SRAF), University of Notre Dame (IN,USA)
+  issued:
+    year: 2021
+  URL: https://sraf.nd.edu/textual-analysis/resources/
+- id: SRAF1
+  title: Software Repository Accounting and Finance / textual analysis / Resources, University of Notre Dame (IN,USA)
+  issued:
+    year: 2018
+  URL: https://sraf.nd.edu/textual-analysis/resources/
+- id: SRAF2
+  title: Software Repository Accounting and Finance / LM Sentiment Word Lists, University of Notre Dame (IN,USA)
+  issued:
+    year: 2018
+  URL: https://sraf.nd.edu/textual-analysis/resources/#LM%20Sentiment%20Word%20Lists
+- id: SRAF3
+  title: Documentation Loughran McDonald MasterDictionary (SRAF)
+  issued:
+    year: 2018
+  URL: https://www3.nd.edu/~mcdonald/Word_Lists_files/Documentation/Documentation_LoughranMcDonald_MasterDictionary.pdf
+- id: LM1
+  author: T.Loughran, B.McDonald
+  title: When is a Liability not a Liability? Textual Analysis, Dictionaries, and 10-Ks
+  issued:
+    year: 2010
+  URL: https://poseidon01.ssrn.com/delivery.php?ID=496096085110072018116093082122093101099083089080001063109072001065125021093118085111098062036040112046109098079102097016088099054090040049087079118031113104065051029003006005019117010126091010068024094084092011005113083006027092005007001111084112&EXT=pdf&INDEX=TRUE
+- id: WBI0
+  title: Worldbank Institute (WBI)
+  issued:
+    year: 2021
+  URL: https://www.worldbank.org
+- id: WBI3
+  title: Country and Lenting Group of WBI - knowledge base
+  issued:
+    year: 2021
+  URL: https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups
+- id: WBI4
+  title: World Bank list of economies (June 2020), Country and Lenting / CLASS.xls
+  issued:
+    year: 2021
+  URL: http://databank.worldbank.org/data/download/site-content/CLASS.xls
+- id: WBI5
+  title: Countries with Regional codes / all.csv
+  issued:
+    year: 2021
+  URL: https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv
+- id: TIDYQUANT
+  title: Tidyquant - Bringing financial and business analysis to the tidyverse, daily stock prices (and many other) from Federal Reserve Economic Data (FRED)
+  issued:
+    year: 2021
+  URL: https://business-science.github.io/tidyquant/
+- id: DSPLUS
+  title: parsing text for emotion terms analysis visualization using R
+  issued:
+    year: 2019
+  URL: https://datascienceplus.com/parsing-text-for-emotion-terms-analysis-visualization-using-r-updated-analysis
+- id: KIRENZ
+  author: Jan Kirenz, R Text Mining
+  title: R Text Mining
+  issued:
+    year: 2019
+  URL: https://www.kirenz.com/post/2019-09-16-r-text-mining/
+- id: LEPENNEC
+  author: E. Le Pennec
+  title: ggwordcloud, a word cloud geom for ggplot2
+  issued:
+    year: 2020
+  URL: https://lepennec.github.io/ggwordcloud/articles/ggwordcloud.html
+- id: CHLOROMAPS1
+  title: datanovia, HOW TO CREATE A MAP USING GGPLOT2
+  issued:
+    year: 2021
+  URL: https://www.datanovia.com/en/blog/how-to-create-a-map-using-ggplot2/
+---
+```{r debugging_flags, include=FALSE}
+#https://bookdown.org/yihui/rmarkdown-cookbook/
+#options(tinytex.verbose = TRUE)  # in case of errors switch on for debugging
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# cleanup
+rm(list=ls(all=T))
+
+#----------------------------------------------------------------------------------------------------------------------------\
+### set working dir, prepare download dir, generate on demand the ".R" file
+#----------------------------------------------------------------------------------------------------------------------------/
+#wd = "D:\\Courses\\dsbook-master\\capstone\\covid_finance"
+#dwd = paste(wd,"\\","data",sep="")
+#setwd(wd)
+#subDir <- "data"
+#ifelse(!dir.exists(file.path(".", subDir)), dir.create(file.path(".", subDir)), FALSE)
+
+#Sys.setenv(R_GSCMD="C:\\Program Files\\gs\\gs9.54.0\\bin\\gswin64.exe")
+
+# knitr::purl("covid_finance.Rmd") # generate the ".R" script on demand
+
+#----------------------------------------------------------------------------------------------------------------------------\
+### List of packages required for this analysis - explanation see below (1) 
+#----------------------------------------------------------------------------------------------------------------------------/
+pkg <- c("dplyr"   , "tidyverse"  , "tidytext"      , "tidyquant" ,"data.table" ,   
+         "ggplot2" , "DiagrammeR" , "ggwordcloud"   , "wordcloud" , "gridExtra", 
+         "readxl"  , 
+         "stringi" , "countrycode",
+         "class"   , "e1071"      , "fastNaiveBayes", "RTextTools", "tm", "SparseM", "caret"
+         )
+new.pkg <- pkg[!(pkg %in% installed.packages())] # if not installed => install
+if (length(new.pkg)) { install.packages(new.pkg, repos = "https://cran.rstudio.com") }
+
+# (1) Libraries and what they are used for:
+library(dplyr, warn.conflicts = FALSE) # grammar to manipulate tables
+library(tidyverse)   # the connection design
+library(tidytext)    # textual analysis
+library(tidyquant)   # financial analysis, tidy access to quantmod = financial analysis
+library(data.table)  # helper for data tables / classes to data frames
+# 
+library(ggplot2)     # the standard to plot data (normally in tidyverse)
+library(DiagrammeR)  # draw some overview diagrams via grViz
+library(ggwordcloud) # draw word clouds - facet possible - geom_text_wordcloud
+library(wordcloud)   # draw word clouds, simpler
+library(gridExtra)   # group plots together in a grid - as per course book chapter 7.14 - grid.arrange
+# 
+library(readxl)      # read excel files
+#library(writexl)    # write excel files, sometimes needed for debugging / short crosschecks
+# 
+library(stringi)     # stri_trans_tolower - better than tolower because considers itâ€™s / itÃ¢â‚¬â„¢s
+library(textdata)    # helper for textual analysis, stopwords et al.
+# 
+library(countrycode) # big helper for mapping different syntax of country names to standardized ISO3-code
+# 
+library("e1071")     # for Naive-Bayes
+library("fastNaiveBayes")  
+library("RTextTools") # for create_container = DocTermMatrix
+# 
+library(tm)          # for text mining - VCorpus
+library(class)       # for KNN
+library(SparseM)     # for SVN
+library(caret)       # for traincontrol, confusionmatrix
+#??gmodels
+
+#tinytex::install_tinytex() # 100MB!
+#tinytex::tlmgr_install("pdfcrop")
+
+# Suppress summarise info - annoying in reports and does not help
+options(dplyr.summarise.inform = FALSE)
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+# Overview
+
+This report is part of the HarvardX course: **PH125.9x Data Science** and contains the results of the final capstone project.  
+
+It consists of **five parts**, starting with this **Overview**, followed by a brief **Introduction and Motivation** outlining the research questions.
+
+The **Summary** section describes how to download, prepare and cleanse the required data sets for Covid-19-, financial- and country-data from:  
+
+  * @IMF0
+  * @OWID0
+  * @SRAF0
+  * @TIDYQUANT
+  * @WBI0
+  
+The next section **Investigation** describes the exploratory data analysis performed to get an overview and initial approaches to the given data.
+
+In the **Methods and Analysis** section the data sets were taken from the investigation section, combined and a sentiment analysis was done. 
+The data sets were then enriched by countries region, sub-region and income-level to order-, group- and filter.
+With this combined data set we investigate deeply the detail texts which were sentiment analyzed before and use different machine learning algorithm to verify whether these algorithms can predict the sentiments too.
+
+The **Results** section orders, groups, and filters the output of the methods and analysis section to display it from different perspectives.
+
+The report ends with a **Conclusion** on the results and possible next steps followed by appendix with abbreviations and references.
+
+----
+
+Hints:   
+The code is included in the RMD file but explicitly switched off (echo=FALSE).    
+My Environment:
+
+  - Windows 10 
+  - R-3.6.3-win
+  - Rtools35
+  - RStudio-1.4.1106
+  - Ghostscript gs9540w64
+
+----
+
+```{r over_view_all, include=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+# Introduction and Motivation
+
+When searching for a topic for my capstone project, I became interested in a connection between the current **Covid-19 pandemic** and the **financial world**. When you see the performance of their most important index, the "Dow Jones Industrial Average" (**DOW** or DJIA) one year after the start of the global pandemic in February 2020 this is stronger than ever - see Figure \ref{fig:over_DOW2}. The financial world seems to be the winner of the crisis. 
+```{r over_DOW1, echo=FALSE, warning=FALSE, results = 'hide'}
+#---------------------------------------------------------------------------------------------------------------------------------/
+# Downloading Dow Jones data = DJIA price using quantmod via tidyquant
+options("getSymbols.warning4.0"=FALSE)
+options("getSymbols.yahoo.warning"=FALSE)
+getSymbols("DJIA", from = '2020-01-01', to = "2021-03-31", warnings = FALSE, auto.assign = TRUE)
+```
+```{r over_DOW2, echo=FALSE, fig.width=4, fig.height=2.5, fig.align='center', tidy=F, fig.cap="\\label{fig:over_DOW2}Dow Jones Index Jan 2020 - Mar 2021"}
+
+chart_Series(DJIA['2020-01/2021-03'])
+#---------------------------------------------------------------------------------------------------------------------------------\  
+
+```
+
+----
+
+**Research Questions:**
+
+Focussing on the financial world, what were and are the actions and policy measures related to the Covid 19 pandemic?   
+
+Were these actions and policy measures positive or negative or have other sentiments?  
+What is in this domain "positive" ?  
+Can machine learning be used to evaluate the sentiments of financial texts?  
+How do the machine learning algorithms differ in quality and speed?  
+
+Does the country's region in the world have an impact?                                                                   
+Do different income levels lead to different measures?                                                                   
+What are common measures regardless of region or income level?                                                          
+
+----
+
+_A review by the Word Bank Institute's Center for Finance, Competitiveness & Innovation [FCI] helped to get into it._<br>
+[@FCI0]<br>  
+
+
+\newpage
+
+## Summary and Overview of the data
+
+**Data sets**  
+The data sets, compiled by the International Monetary Fund (IMF), OurWorldInData.org (OWID) and World Bank Institute (WBI) were merged, grouped, aggregated and sentiment-analyzed based on an financial analysis classification set ^[@SRAF2], enriched and filtered  by 
+region, sub-region and income-level - see Figure \ref{fig:Data}. Based on that sentiment analysis different machine learning algorithms were used to find the best and fastest prediction.
+
+In the following a data flow diagram, generated by graphviz / DiagrammR:
+^[https://dreampuf.github.io/GraphvizOnline] ^[https://graphviz.org/doc/info/shapes.html]
+
+```{r over_view_data, out.width="100%", tidy=T, echo=FALSE, warning=FALSE, fig.cap="\\label{fig:Data}Overview of Data Input and Flow"}
+#---------------------------------------------------------------------------------------------------------------------------------/
+#https://dreampuf.github.io/GraphvizOnline
+#https://graphviz.org/doc/info/shapes.html
+#webshot::install_phantomjs(version = "2.1.1",baseURL = "https://github.com/wch/webshot/releases/download/v0.3.1/",force = FALSE)
+#if(TRUE) {
+DiagrammeR::grViz('
+digraph H {
+  graph [overlap = true, fontsize = 10]
+  color=blue
+
+  # several node statements #################
+  node [shape = cylinder,style=filled]  # Data Sources    
+  subgraph cluster_0 {
+    label = "Acquire"; 
+    subgraph cluster_2 {  label = "Worldbank Institute [WBI]\n."      ; FCI_Data; Country_Data; }
+    subgraph cluster_3 {  label = "Software Repository\n Accounting and Finance [SRAF]" ; Sentiment_Words; }
+    subgraph cluster_5 {  label = "International Monetary\nFund [IMF]"; Fiscal_Data;  }
+    subgraph cluster_6 {  label = "R Libraries\n."                    ; CountryCodes; StopWords; }
+    subgraph cluster_7 {  label = "Tidyquant\n."                      ; stock_price; }
+  }
+  node [shape = box, fontname = Helvetica]  # working  Sources  
+  subgraph cluster_1 { label = "Prepare"; Prepare;   }
+  subgraph cluster_5 { label = "Analyze"; Sentiment_Analysis; map_filter_merge; machine_learning  }
+  subgraph cluster_6 { label = "Report";
+    Word_Clouds  ; world_maps; country_group_box_plots;
+	algorithm_compare; report_alg_quality
+  }
+  # several edge statements #################
+  { stock_price; Country_Data, FCI_Data, Fiscal_Data, CountryCodes } -> Prepare 
+  { Sentiment_Words,  StopWords } -> Sentiment_Analysis 
+  Prepare            -> {map_filter_merge, Sentiment_Analysis} 
+  Sentiment_Analysis -> {map_filter_merge,Word_Clouds,machine_learning}
+  map_filter_merge   -> {world_maps,country_group_box_plots}
+  map_filter_merge   -> machine_learning -> algorithm_compare -> report_alg_quality
+}
+')
+#}
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+A. **Financial data**<br>
+
+  1. **FCI data** by **Word Bank Institute** [WBI]<br>
+  
+     Finance, Competitiveness & Innovation [FCI] Global Practice overview of policy measures  
+	   Data taken in jurisdictions and by type of measure in support of the financial sector to address the impact of the COVID-19 pandemic:  
+	   [@FCI1]  
+	   [@FCI2]  
+     **3672 rows x 14 columns, 148.000 detail words**   
+
+  2. **Fiscal Measure Response data** by **International Monetary Fund** [IMF]<br>
+  
+     Additional country data - expenses for Covid-19 of GDP in percent.  
+     [@IMF1]  
+     **193 rows x 25 columns**  
+
+  3. **DOW or DJIA** by  **Yahoo finance [YF]**<br>
+  
+     Dow jones industrial average" (DOW or DJIA) index time series value as motivating example above by accessing yahoo finance via R tidyquant package.  The data is only used in the motivation section above.  
+     **313 rows x 6 columns**
+
+B. **Country and Locations data**<br>
+
+  1. **Country and Lending Group** by **Word Bank Institute** [WBI]<br>
+  
+     Additional country data - grouping and ratings  
+      [@WBI3]  
+      [@WBI4]  
+      **279 rows x 9 columns**
+
+C. **Sentiment Resources**<br>
+
+  1. **Textual Analysis Resources**, Software Repository Accounting and Finance [SRAF] by [@SRAF0]  
+
+  2. **Sentiment Words Financial**<br>
+     [@SRAF1]  
+     **4150 words + sentiment**  
+
+**Preparations:** The mentioned data sets from the different locations in Excel- and CSV-format were downloaded and transferred into data frames by using the tidy packages tidyverse, tidytext, tidyquant,   
+
+  * cleaned empty/white/marked as empty values especially in the excel sheets,
+  * removed not needed features,
+  * renamed/normalized feature names and values to make data sets comparable/mergeable/readable,
+  * transposed data formats e.g. dates to year/month pairs, absolute to relative values, exchange of row/column, use pivot tables,
+  * prepared filters and mappings.
+
+**Problems:** Complex formats in Excel like tables within tables (Worldbank- and IMF-Excel), hidden tabs, many features look interesting but lead beyond the scope and into complexity.  
+The decision what to delete or aggregate to not lose information or get misleading results was a challenge.  
+Merging data across table by free-text strings required precise preparation before it worked - different notation for the same country. A big helper was the R library "countrycodes" to unify country identification.    
+Sometimes the latex generation messages and problems were annoying, seem non-printable character caused the problems. Unclear, why some fig.cap below graphs do not occur. And the "Label multiply defined" warning is a mystery.
+
+```{r load_Data_all, echo=FALSE, results = 'hide'}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+############################################################################################################################
+############################################################################################################################
+# DATA LOAD PART
+############################################################################################################################
+############################################################################################################################
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+### my_download = wrapper for downloading to temp file
+#---------------------------------------------------------------------------------------------------------------------------------/
+my_download <- function(burl,bfile,bdest="") {
+  url  <- paste(burl,bfile,sep="")
+  tmp  <- tempfile()
+  download.file(url, tmp, mode="wb")
+  return(tmp)
+}
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+### Financial Resources
+<br>  
+
+```{r load_FinData, echo=FALSE, results = 'hide'}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+#### FCI (= Finance, Competitiveness & Innovation) data related to Covid-19 by World Bank Institute [WBI]  
+<br>  
+This data set covers the time of February 2020 - March 2021. ^[@FCI4]
+[@FCI2]
+  
+```{r load_FCI0, echo=FALSE, message=FALSE, cache=TRUE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+dest <- my_download("https://development-data-hub-s3-public.s3.amazonaws.com/ddhfiles/936261/",
+                       "covid-fci-data.xlsx")
+fci0    <- readxl::read_excel(dest,sheet=2,trim_ws = TRUE)
+#dim(fci0)  # 3723x14
+as_tibble(head(fci0))
+print(paste("FCI-Data:",nrow(fci0),"rows x",length(fci0),"columns"))
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+#### Fiscal measure response data related to Covid-19 by International Monetary Fund [IMF]  
+<br>  
+[@IMF2]
+  
+This database summarizes key fiscal measures governments have announced or taken in selected economies in response 
+to the COVID-19 pandemic as of March 17, 2021. 
+It includes COVID-19 related measures since January 2020 and covers measures for implementation in 2020, 2021, and beyond.
+We are using the key features "Budget in % of GDP" and "Budget in USD"
+
+> Data are used from **January 2020 to March 2021** because the FCI-data set covers only this time period.
+
+```{r load_Fiscal0, echo=FALSE, message=FALSE, warn=FALSE, cache=TRUE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+file    <- "revised-april-2021-fiscal-measures-response-database-publication-april-2021-v3"
+dest <- my_download("https://www.imf.org/en/Topics/imf-and-covid19/~/media/Files/Topics/COVID/FM-Database/SM21/",
+                       paste(file,".ashx",sep=""),
+                       paste(file,".xlsx",sep=""))
+fiscal0  <- readxl::read_excel(dest,sheet=1,skip=4)
+#dim(fiscal0) # 193 25
+as_tibble(head(fiscal0))
+print(paste("Fiscal:",nrow(fiscal0),"rows x",length(fiscal0),"columns"))
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Country + Locations Resources 
+
+```{r load_Country0, echo=FALSE, cache=TRUE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+#### Country Data by Word Bank Institute [WBI]
+
+The region, sub-region and income-level are included in this data. The income-level is not well filled, only 155 of 251 rows.
+The country class data set is better filled for income-level, so we enrich / coalesce the both features.
+[@WBI5]
+
+```{r load_Country1, echo=FALSE, cache=TRUE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+dest  <- my_download("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/",
+                        "all.csv")
+country0 <- read_csv(dest)
+#spec(country0) 
+print(paste("Country:",nrow(country0),"rows x",length(country0),"columns"))
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+#### Country Class Data by Word Bank Institute [WBI]  
+
+Here the countries are classified additionally in financial regions. The financial- or income-level, here named income-group, is better filled as in the previous data.
+[@WBI4]
+
+```{r load_Class0, echo=FALSE, message=FALSE, cache=TRUE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+dest  <- my_download("http://databank.worldbank.org/data/download/site-content/",
+                      "CLASS.xls")
+class0 <- readxl::read_excel(dest,sheet=1,skip=4)
+#as_tibble(head(class0)) 
+class0%>%sample_n(5)
+print(paste("Country Class:",nrow(class0),"rows x",length(class0),"columns"))
+
+```
+
+### Sentiment Analysis Resources 
+
+```{r load_Sent0, echo=FALSE, message=FALSE, cache=TRUE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+#### Financial Sentiment Words by Software Repository Accounting and Finance [SRAF]  
+  
+The following resources were evaluated.  
+The builtin data in R was sufficient - no need to download, here for reference and as background.
+
+[@SRAF0]<br>
+[@SRAF1]<br>  
+
+> "...almost  **three-fourths  of  the  words**  identified  as  **negative  by  the  widely  used  Harvard  Dictionary**  are  words  **typically  not  considered  negative  in  financial  contexts**.  We  develop an alternative negative word list, along with five other word lists, that better reflect tone in financial text. We link the word lists to 10-K filing returns, trading volume, return volatility, fraud, material weakness, and unexpected earnings"  
+[@LM1]
+
+ Examples for these lists:<br>
+ ^[@LM1]<br>
+ ^[@SRAF3]<br>
+ 
+   * _negative_: restated, litigation, termination, discontinued, penalties, unpaid
+   * _positive_: efficient, improve, profitable, upturn
+   * _uncertain_: approximate, contingency, depend, fluctuate, indefinite, risk, uncertain, variability
+   * _litigious_: ("reflecting a propensity for legal contest"): regulated, legal, law
+   * _constraining_: claim, committing, limit, regulation, require<br>
+     
+ 
+_This is the **fundamental basis** for further analysis **in this capstone project**.<br>The detailed policy and measure texts of the countries are analyzed and categorized.<br>The "Maximal Sentiment Category" (= category with the most words) determines the overall sentiment of the policies and measures for the country, the region, the sub-region or income-level._ 
+
+```{r load_Sent, echo=FALSE, message=FALSE, cache=TRUE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+# https://sraf.nd.edu/textual-analysis/resources/#LM%20Sentiment%20Word%20Lists
+# Download the file "LoughranMcDonald_SentimentWordLists_2018.xlsx" 
+# not needed, using builtin list of R
+
+#?get_sentiments
+#get_sentiments("bing")  # big differences in result using other lists!
+#get_sentiments("nrc")
+Sentiment_Classifier <- get_sentiments("loughran") 
+
+#str(Sentiment_Classifier) 
+Sentiment_Classifier%>%sample_n(5)
+print(paste("Sentiment_Classifier:",nrow(Sentiment_Classifier),"rows x",length(Sentiment_Classifier),"columns"))
+
+############################################################################################################################
+############################################################################################################################
+# DATA PREPARE PART
+############################################################################################################################
+############################################################################################################################
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+## First approaches to the data
+
+In this chapter the data sets downloaded in the previous chapter are explored.
+That means they are shortly inspected, cleaned, features are selected or dropped, datas are firstly visualized - mainly as table.
+
+```{r preparation, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### FCI-data: prepare
+The FCI data set is the main research table - the following preparation steps were done:
+ 
+  * renames, drop unused columns, cleanup whitespace(!!), inconsistent future dates
+  * rename cryptic and long content,
+  * normalize to capitalized measures
+
+The data in this data set is **only defined for 156 countries** of the world. So there will be gaps in the sentiment-per-country-map.
+
+```{r prep_FCI1, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+#fci0[['Country Name']][0:2]
+#dim(fci0)  # 3788x14
+#fci0 %>% head(2) 
+# rename a bit more handy and drop unused columns
+colnames(fci0)        <- c('ID','Country','ISO3','IncomeLevel','Authority','Date',
+                           'Measure1','Measure2','Measure3','Detail','Reference','TermDate','ModParent','Parent')
+fci1 <- fci0 %>% select(-c('ID',                                     'Reference','TermDate','ModParent','Parent'))
+fci1$ym <- format(fci1$Date, "%y-%m")
+#fci1 %>% head(2) 
+#dim(fci1)  # 3788x9
+fci2 <- fci1[!(is.na(fci1$Measure1   ) | fci1$Measure1    =="" | # cleanup whitespace(!!)
+               is.na(fci1$Measure2   ) | fci1$Measure2    =="" | 
+               is.na(fci1$Detail     ) | fci1$Detail      =="" | 
+               is.na(fci1$Date       ) | fci1$Date > "2021-03-31" |   # no empty date or funny date in future (Italy!)
+               is.na(fci1$IncomeLevel) | fci1$IncomeLevel =="" | fci1$IncomeLevel  =="Aggregates"| 
+               is.na(fci1$Country    ) | fci1$Country     =="" | fci1$Country      =="G20" ),]
+#dim(fci2)  # 3771x9
+# rename cryptic / too short / too long titles / content
+fci2$Measure1[fci2$Measure1  == 'Liquidity/Funding']  <-  'Liquidity/ Funding'
+fci2$Measure1[fci2$Measure1  == 'Financial Markets/Nbfi']  <-  'Fin. Markets/ Nbfi'
+fci2$Measure2[fci2$Measure2  == 'NBFI']  <-  'Non-Bank Financial Intermediaries'
+fci2$Measure2[fci2$Measure2  == 'Promoting and ensuring availability of digital payment mechanisms'] <- 'Ensure digital payment mechanisms'
+fci2$Measure2[fci2$Measure2  == 'Consumer protection measures and ensuring availability and acceptance of cash'] <- 'Consumer protection/ avail+accept cash'
+fci2$Measure2[fci2$Measure2  == 'Enhancing tools for out-of-court debt restructuring and workouts'] <- 'Enhance tools: Debt Restructuring+Workouts'
+
+fci2$Country[fci2$Country  == 'United Kingdom of Great Britain and Northern Ireland'] <- 'United Kingdom'
+
+# normalize mixed writing style (cap./non cap/camel style
+fci2$IncomeLevel <- str_to_title(fci2$IncomeLevel)
+fci2$Measure1    <- str_to_title(fci2$Measure1)
+fci2$Measure2    <- str_to_title(fci2$Measure2)
+no_c <- fci2$Country %>% sort() %>% unique() # check that joins do not filter out lines
+#length(no_c) # 156
+
+FCI2 <- fci2 # central result of FCI-preparation
+
+#```
+#After cleaning - here a subset:
+#\tiny 
+#```{r prep_FCI2a, echo=FALSE}
+#knitr::kable(fci2[1:5,1:5], caption = "\\label{tab:fci2}FCI data")
+FCI2 %>% sample_n(5) #%>% select(c('ISO3','Measure1','Detail')) %>% knitr::kable()  #[1:5,1:5]
+#```
+#\normalsize 
+#```{r prep_FCI2b, echo=FALSE}
+
+print(paste("FCI data:",nrow(FCI2),"rows x",length(FCI2),"columns"))
+
+if(FALSE) { # for debug - Save datasets to a file
+  saveRDS(FCI2   , "FCI2.rds")
+}
+rm(fci0,fci1,fci2)
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+### Fiscal-data: prepare  
+
+The fiscal data table contains the monetary expenses a country has made as reaction to the pandemic, absolute in US-Dollar and relative to the countries' GDP. The following preparation steps were done:
+
+  * cleanup 
+  * rename columns
+  * drop unused columns
+  * fill up empty cells caused by excel cell grouping - the most upper cell in that group has a value, can be filled down good by the fill function.
+
+
+```{r prep_Fiscal1, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+#fiscal0 %>% head(4)
+
+# https://stackoverflow.com/questions/7735647/replacing-nas-with-latest-non-na-value
+fiscal1 <- fiscal0 %>% fill(c(colnames(fiscal0)), .direction = c("down"))  # fill up empty cells with that value above
+fiscal1 <- head(fiscal1, -4)  # remove last 4 (comment) lines
+colnames(fiscal1) <- c('G20Spain'     ,'Cgroup'  ,'Country',
+                       'GovLevel'     ,'##empty1','Unit1',
+                       'Budget'       ,'Tsize1'  ,
+                       'AddHealth'    ,'Tsize2'  ,
+                       'AddNonHealth' ,'Tsize3'  ,
+                       'AccNonHealth' ,'##empty2','Unit2',
+                       'TBudgetBC'    ,'Tsize4'  ,
+                       'EqInjAssPLD'  ,'##empty3','Unit3','Tsize5',
+                       'Guarantees'   ,'Tsize6'  ,        
+                       'LoanFundOther',
+                       'QuasiFiscalOp')
+fiscal2 <- fiscal1 %>% select(-c('##empty1','##empty2','##empty3')) # delete empty columns
+
+```
+First lines of result table:
+  
+_General Government = Central Government + State- + Local Government_^[@IMF3]
+```{r prep_Fiscal2, echo=FALSE}
+fiscal2 %>% sample_n(5) #%>% select(c('Country','ISO3','Unit1','Budget','AddHealth','AddNonHealth'))%>%knitr::kable()
+#knitr::kable(fiscal2[1:5,1:5], caption = "\\label{tab:fiscal0}Country Fiscal data")
+#fiscal2[1:5,1:5]
+print(paste("Fiscal data:",nrow(fiscal2),"rows x",length(fiscal2),"columns"))
+
+rm(fiscal1)
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+### Country data: prepare  
+
+The country table contains the information about ISO3-Code (important for unique merges to other datasets), region and sub-region. 
+The country class table contains additionally a financial group, which we can map to the country via the ISO3 code.  
+The following preparation steps were done:
+
+  * cleanup
+  * rename columns
+  * drop unused columns
+  * fill up empty cells with the value of the cell above to handle excel grouped cells
+  * map FCI-data-income-level to the country - but has only 161 of 251 filled
+  * map / coalesce WBI-Class-data-Income-Group - ramp up to 218 filled income-levels
+  * replace / normalize the country names as used in other tables - to get it merged
+  * use only those rows where the region, sub-region and income-level is filled - otherwise it is not helpful for further analysis
+
+```{r prep_Country1, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+# country seems ok - we just need it for the ISO3-Code - Region - map 
+
+#country0 %>% head(4)
+# rename a bit more handy and drop unused / non-needed columns
+colnames(country0) <-            c('Country','a1','ISO3','a3','ccode','Region','SubRegion','intRegion','Regioncode','subregcode','intregcode')
+country1 <- country0 %>% select(-c(          'a1',       'a3','ccode',                     'intRegion','Regioncode','subregcode','intregcode')) 
+# normalize the country names
+country1$Country[country1$Country == 'United Kingdom of Great Britain and Northern Ireland'] <- 'United Kingdom'
+country1$Country[country1$Country == 'United Kingdom'                    ] <- 'UK'
+country1$Country[country1$Country == 'United States of America'          ] <- 'USA'
+
+# add Income Level from FCI data to country - to summarize 
+fciInc <- FCI2[c('ISO3','IncomeLevel')]# ,'Country')]
+fciInc$IncomeLevel <- gsub(' Income', '', fciInc$IncomeLevel)
+country1 <- merge(x=country1,y=fciInc,by="ISO3",all=TRUE) %>% unique()
+
+# add fin.region from country class table
+class1 <- class0[!(is.na(class0$Region) | class0$Region == "" | class0$Region == "x"),]  # cleanup whitespace or noise(!!)
+class2 <- class1 %>% select(c('Code','Economy','Region','Income group'))
+colnames(class2) <- c('ISO3','Economy','FinRegion','Incomegroup')
+class2$Incomegroup = gsub(" income", "",class2$Incomegroup)
+class2$Incomegroup <- str_to_title(class2$Incomegroup)
+country1 <- merge(x=country1,y=class2,by="ISO3",all=TRUE) %>% unique()
+# IncomeLevel not well filled, only 155 => IncomeGroup is much better filled, but also not always -> coalesce!
+country1 <- country1 %>% 
+  mutate(IncomeLevel = coalesce(IncomeLevel,Incomegroup)) # take the best of both worlds - whatever has a value: grab it
+
+# cleanup data
+country1 <- country1[!(is.na(country1$Region)     |country1$Region     =="" |
+                       is.na(country1$SubRegion)  |country1$SubRegion  =="" |
+                       is.na(country1$IncomeLevel)|country1$IncomeLevel==""),]
+# 218 instead of 156 without CLASS
+
+## ----prep_Country2, echo=FALSE---------------------------------------------------------------------------------------------------------------------------------------------------
+
+```
+\tiny 
+```{r prep_Country3, echo=FALSE}
+COUNTRY2 <- country1
+COUNTRY2 %>% head(5) %>% knitr::kable(caption="\\label{tab:country2}Country <-> Region/SubRegion/IncomeLevel")
+```
+\normalsize 
+```{r prep_Country4, echo=FALSE}
+
+
+print(paste("Country data:",nrow(COUNTRY2),"rows x",length(COUNTRY2),"columns"))
+
+rm(country0,country1,fciInc,class0,class1,class2)
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+### World map: prepare 
+
+The ggplot world map is joined with the country data set. 
+Unfortunately the world_map has no ISO3-code but we can enrich that to have a high quality feature.
+Further preparations:
+
+  * cleanup - some countries seem not not have a unique ISO3-code
+  
+  * sort out columns without region or fin-region
+
+Examples: 
+
+```{r prep_worldmap1, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+world_map <- map_data("world")
+ctry <- COUNTRY2[c('Country','Region','SubRegion','FinRegion','IncomeLevel','ISO3')]
+no_iso3 = c("Ascension Island", "Azores", "Barbuda", "Bonaire", "Canary Islands", "Chagos Archipelago", "Grenadines", 
+            "Heard Island", "Kosovo", "Madeira Islands", "Micronesia", "Saba", "Saint Martin", "Siachen Glacier", "Sint Eustatius", "Virgin Islands")
+world_map1 <- world_map %>% filter(!(region %in% no_iso3)) %>%                          # (1)
+  mutate(ISO3 = countrycode(region, origin = 'country.name', destination = 'iso3c'))
+
+world_map2 <- left_join(world_map1, ctry, by = "ISO3") # ISO3 is very helpful!!
+# check: world_map2 %>% filter(is.na(ISO3     )) %>% select(region) %>% unique() # 0 - good job!
+# check: world_map2 %>% filter(is.na(FinRegion)) %>% select(region) %>% unique() # 26 - some parts will be greyed out, no further harm
+world_map2 <- world_map2 %>% filter(!is.na(Region))    # %>% select(region) %>% unique()
+
+world_map2 %>% sample_n(5) %>% select(c('long','lat','Country','ISO3')) %>% knitr::kable(caption="\\label{tab:world_map2}Country <-> position in world map - ISO-Code")
+
+print(paste("world map:",nrow(world_map2),"rows x",length(world_map2),"columns"))
+
+rm(ctry,world_map1)
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+# Methods and Analysis
+
+In this section the data sets from investigation section are combined, t3he countries are grouped by their:
+
+  * Region of the world
+  * Sub-Region
+  * income-level
+  
+and tried to evaluate patterns in the relation to the measures against the Covid-19. 
+A textual sentiment analysis is done with the detail texts of the measures.
+
+Different machine learning are then tested on these detail texts to detect the sentiments by these algorithms.
+
+```{r ana_lyze__, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+## Fiscal-Data: Budget per country for Covid-19 measures in % of GDP and billion USD
+
+To get an overview about what massive amounts of money we are talking here the following two tables:
+
+```{r ana_fiscal1, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+fiscal3 <- fiscal2 %>% 
+  filter(Country != 'European Union') %>% # we want real countries
+  filter(Unit1 == '% GDP') %>% select(c('Country','GovLevel','Budget')) # in % GDP
+fiscal4 <- fiscal2 %>% filter(Unit1 == 'USD bn') %>% select(c('Country','Budget')) # absolute in USD
+fiscal3 <- merge(x=fiscal3,y=fiscal4,by="Country") #,all=TRUE)  #outer join
+colnames(fiscal3) <- c('Country','GovLevel','BudgetGDP','BudgetUSDbn')
+fiscal3$BudgetGDP   <- round(10*fiscal3$BudgetGDP)/10
+fiscal3$BudgetUSDbn <- round(10*fiscal3$BudgetUSDbn)/10
+
+rm(fiscal4)
+```
+Top countries with their budgets against Covid-19 as per IMF ^[@IMF1]  
+_General Government = Central Government + State- + Local Government_^[@IMF3]
+```{r ana_fiscal2, echo=FALSE}
+fiscal3[with(fiscal3, order(-BudgetGDP))  , ] %>% head(10) %>% knitr::kable(caption="\\label{tab:ana_fin3}Country: Top Budget sorted by % of GDP")
+fiscal3[with(fiscal3, order(-BudgetUSDbn)), ] %>% head(10) %>% knitr::kable(caption="\\label{tab:ana_fin4}Country: Top Budget sorted by billion USD")
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+## FCI-data: Measures: categories level 1 + 2 top scorer
+
+Possible measures are defined by WBI/FCI ^[@FCI1;@FCI2] in a 5 x 19 matrix (=95 possible measures).
+The banking sector is the top scorer in Covid-19 policies and measures: (NBFI) ^[NBFI = Non-bank financial intermediaries, i.e. pension funds, insurance companies, mutual funds, venture capital]  
+
+```{r ana_fci1, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+tab <- table(FCI2$Measure1,FCI2$Measure2)
+#str(tab)
+tab_melt <- reshape2::melt(tab) 
+colnames(tab_melt) <- c("MeasureL1","MeasureL2","value")
+#tab_melt
+#str(tab_melt)
+tab_sum   <- sum(tab_melt$value)
+tab_meltb <- tab_melt %>% group_by(MeasureL1) %>% summarise(n=sum(value)) #filter(Var1 == 'Banking Sector') 
+tab_sumb  <- tab_meltb$n[tab_meltb$MeasureL1=='Banking Sector'] 
+tab_sumbp <- round(tab_sumb / tab_sum * 1000)/10 
+tab_melt  <- tab_melt %>% mutate(percent = round(value / tab_sum * 1000)/10 ) %>% filter(value > 30)
+#tab_melt
+
+tab_meltb[with(tab_meltb, order(-n)), ] %>% knitr::kable(caption="\\label{tab:ana_fci1}Top n measures level 1")
+
+# plot preparation
+A <- theme(axis.text.x = element_text(angle = 45, size = 8, hjust=1), # A-xis text
+           axis.text.y = element_text(angle =  0, size = 8, hjust=1))
+B <- geom_tile(aes(fill = value))                                     # B-ar
+C <- geom_text(vjust=0.5, colour="black", size = 3)                   # C-olor
+G <- guides(fill=FALSE)                                               # G-uides
+S <- scale_fill_gradient(low = "white", high = "red")                 # S-cale fill
+
+print(paste(tab_sumb,"(=",tab_sumbp,"%) of ",tab_sum,"measures in banking sector!"))
+```
+
+ 
+<br>  
+Currently only 12 measures with a **significant usage count > 30** are used, so there is potential to use more measures.
+in particular, measures for the providers of the financial systems seem to be significantly more than for the customer of the financial systems - i.e. measures against insolvency seem to be underrepresented.
+
+```{r ana_fci2_tab, fig.width=6, fig.height=4, fig.align='center', tidy=F, echo=FALSE, fig.cap="\\label{fig:tab_melt}Number of measures level 2 vs. 1"}
+# plot
+tab_melt %>% 
+    ggplot(aes(x=fct_reorder(MeasureL2,-value), y=reorder(MeasureL1,value), label=value)) +       # Create heatmap with ggplot2
+           labs(x = "Measure level 1", y = "Measure level 2 ", 
+                title = "Measures level 2 vs. 1") + A + B + C + G + S 
+# sorted up-left to bottom-right
+
+rm(tab_melt,tab_meltb)
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+## FCI-data: Textual sentiment analysis on the details
+
+The approach is done as per [chapter 26.3 course book](https://rafalab.github.io/dsbook/) ^[https://rafalab.github.io/dsbook/] plus additional web resources. ^[@KIRENZ] ^[@DSPLUS]
+
+The detail texts of countries are combined and analyzed in the following steps t~0~ .. t~9~:  
+
+  * t~0~ = filter needed columns out of FCI data
+  * t~1~ = tokenize / group / count detail
+  * t~2~ = remove stop words and numbers - not absolutely needed, but to get an overview
+  * t~3~ = core of sentiment analysis = inner join to sentiments, by that all "noise words" are dropped out
+  * t~4~ = cleanup NA, first plot of words
+  * t~5~ = rejoin Country
+  * t~6~ = filter out rare words
+  * t~7~ = add Region
+  * t~8~ = add SubRegion
+  * t~9~ = add IncomeLevel  <- this is the main result used in the later sections 
+
+```{r sent_fci1, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+#fci2 <- fci1[order(fci0$Country),]
+
+```
+Examples for measure details:
+```{r sent_fci2, echo=FALSE, warning=FALSE}
+FCI2 %>% sample_n(5) %>% select(Detail) %>% knitr::kable()
+
+t0 <- FCI2[c('Country','Detail','ISO3')]  # filter needed columns out of FCI data
+
+t1 <- t0 %>%                              # tokenize / group / count detail
+  group_by(ISO3) %>%
+  summarise(word=paste0(Detail, collapse=' '))  %>% 
+  mutate(linenumber = row_number())       # linenumber to be able to rejoin later on
+
+t1 <- data.frame(t1)                      # change grouped_df to df
+
+# remove stop words - not absolutely needed cause the sentiment is an inner join - but to get an overview!  
+t2 <- t1 %>%  
+  unnest_tokens(word, word) %>%
+  anti_join(stop_words) %>%          # filter out stop words (built_in list)
+  filter(!grepl('[0-9]', word)) %>%  # filter out numbers
+  #filter(n() > 10) %>%              # filter out very rare words
+  ungroup()
+#str(t2) # [89,526 x 2] , rare words out / n>10 => [87,971 x 4], numbers out => tibble [79,899 x 4] 
+
+# core of sentiment analysis = inner join to sentiments
+t3 <- t2 %>%
+  inner_join(Sentiment_Classifier) #%>% unique() # not unique because words can be in different sentences per country
+
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+## Sentiments: clouds and maximum sentiments
+
+### Sentiment clouds: Portfolio of sentiment types as wordclouds
+
+5 main sentiment groups could be found in the detail texts.  
+The fill grade of the boxes reflect the frequency of the sentiment type, the size of the words their frequency. ^[@LEPENNEC]   
+
+```{r sent_wordcloud1, fig.width=6.7, fig.height=7, tidy=F, echo=FALSE, warning=FALSE, fig.cap="\\label{fig:sent_wordcloud1}wordcloud portfolio"}
+#---------------------------------------------------------------------------------------------------------------------------------/
+# plot preparation
+A <- theme(strip.text.x = element_text(size = 15, colour = "blue")) #+ theme_minimal() + 
+# plot
+t4 <- t3 %>% count(word,sentiment) %>% filter(n > 16) %>%   # main parameter to manipulate the fill grade
+  mutate(angl = 90 * sample(c(0, 1), n(), replace = TRUE, prob = c(60, 40))) 
+t4 %>% ggplot(aes(label = word,  angle = angl, color = n, size=n)) + 
+  scale_size_continuous(range = c(3, 6), guide = FALSE) +
+  facet_wrap(~sentiment) + A + 
+  geom_text_wordcloud(area_corr_power = 1.3) 
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+### Sentiment type and maximum: per countries and country groups
+
+The following heatmap is sorted in X- and Y-dimension to have the highest number of sentiment top left and the lowest bottom right.
+To simplify we choose the maximal number as representative for the country. We see the top sentiment is nearly 2 times the 2nd sentiment (Spain: 120 negative, 74 litigious, Italy: 105-44). In chapter 4.3 we'll verify this a step deeper with boxplots.
+
+The following sentiment heatmap is sorted by X and Y dimension top left to low right.
+To simplify in further steps, we choose the maximum sentiment as a representative for the country. We see, the top sentiment is +/- 2 times the 2nd rank sentiment (Spain: 120 negative <-> 74 litigious, Italy: 105 <-> 44). In chapter 4.3 we will review in more detail with boxplots.
+
+```{r sent_country1, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+t3  <- t3 %>% # pull out only sentiment words
+  group_by(linenumber) %>% 
+  count(sentiment) 
+
+# merge back the beginning - here we have the country-word-sentiment-count
+t4 <- merge(x=t1,y=t3,by="linenumber") #,all=TRUE)  #outer join
+t4 <- t4 %>% select(-c(word))
+t4[is.na(t4)] <- 0 # replace NAs with 0
+
+# count c-ountries per r-egion (=cr), s-ubRegion(=cs), i-ncomelevel(=ci) 
+# this is to normalize counts of words per countries
+cr <- COUNTRY2 %>% group_by(     Region) %>% count(); colnames(cr)[colnames(cr) == "n"] <- "nr"
+cs <- COUNTRY2 %>% group_by(  SubRegion) %>% count(); colnames(cs)[colnames(cs) == "n"] <- "ns"
+ci <- COUNTRY2 %>% group_by(IncomeLevel) %>% count(); colnames(ci)[colnames(ci) == "n"] <- "ni"
+
+# now merge back to other tables
+t5 <- merge(x=t4,y=COUNTRY2,by="ISO3"  ) %>% unique() #,all=TRUE)  # country-word-sentiment-count => Region/SubRegion/Income
+t5 <- t5 %>% filter(!is.na(FinRegion))           # remove these without finregion
+t5 <- t5 %>% filter(sentiment != "superfluous")  # do not use superfluous, only very rare
+
+t6 <- merge(x=t5,y=fiscal3 ,by="Country"    ) %>% unique() #,all=TRUE)  #   => GDP
+low_n <- 10  # low water limit to keep it readable
+t7 <- t6 %>% # filter a few out to have it readable
+  filter(n>low_n) %>%
+  mutate(linenumber = row_number())  # linenumber to be able to rejoin later on
+
+# Plot the wordclouds -----------------------------------------\
+```
+
+```{r sent_COUNTRY2, echo=FALSE, warning=FALSE, fig.width=6, fig.height=5, fig.align='left', fig.cap="\\label{fig:sent_wordcloud1}wordcloud portfolio", }
+
+# plot preparation
+A <- theme(axis.text.x = element_text(angle = 45, size = 8, hjust=1)) # A-xis text
+C <- geom_text(vjust=0.5, colour="black", size = 3)                   # C-olor
+D <- geom_tile(aes(fill = n))                                         # D-ile
+S <- scale_fill_gradient(low = "white", high = "red")                 # S-cale fill
+L <- c("Sentiment type","Country")
+T <- c("Words per sentiment type per country",paste("Sort top-left to bottom-right, #words >",low_n))
+
+# plot many rows
+t7 %>% ggplot(aes(x=fct_reorder(sentiment,-n), y=reorder(Country, n), label=n)) + # heatmap #  y=reorder(Country,-linenumber)
+              labs(x = L[1], y = L[2], title = T[1], subtitle = T[2]) + A + D + C + S
+
+```
+The table above shows an anomaly: although the litigious top words are in front of the constraining, in total the constraining are more than the litigious words (Rank 2 and 3 changes depending of perspective).
+```{r sent_COUNTRY3, echo=FALSE, warning=FALSE}
+
+#--------------------------------------------------------------/
+
+# merge comparing Regions -----------------------------------------\
+t7 <- merge(x=t6,y=cr      ,by="Region"     ,all=TRUE) %>% unique() #,all=TRUE)  #   => countries per Region
+t8 <- merge(x=t7,y=cs      ,by="SubRegion"  ,all=TRUE) %>% unique() #,all=TRUE)  #   => countries per SubRegion
+t9 <- merge(x=t8,y=ci      ,by="IncomeLevel",all=TRUE) %>% unique() #,all=TRUE)  #   => countries per IncomeLevel
+
+###############################################\
+SENT1 <- t9  # t9 is the central result of sentiment analysis, all in
+###############################################/
+
+if(FALSE) { # for debug - Save datasets to a file
+   saveRDS(fci0   , ".\\data\\fci0.rds")
+   saveRDS(t2     , ".\\data\\t2.rds")
+   saveRDS(t5     , ".\\data\\t5.rds")
+   saveRDS(t7     , ".\\data\\t7.rds")
+   saveRDS(t8     , ".\\data\\t8.rds")
+   saveRDS(t9     , ".\\data\\t9.rds")
+   ## load objects from file if downloaded / prepared before
+   #t9   <- readRDS(".\\data\\t9.rds")
+   #fci0 <- readRDS(".\\data\\fci0.rds")
+}
+
+# count sentiment per country per line - get first maximum of line as maximum sentiment... as per (*1*) ... weak point!!
+SENT2 <- t5 %>% 
+  spread(sentiment, n, fill = 0) 
+
+# evaluate the maximal sentiment word list of the country
+SENT2$max_sent  <- pmax(SENT2$negative,SENT2$constraining,SENT2$litigious,SENT2$uncertainty,SENT2$positive)# ,SENT2$superfluous) 
+SENT2$max_sentx <- case_when(
+  SENT2$max_sent    ==0              ~ 'no',
+  SENT2$negative    ==SENT2$max_sent ~ 'negative'    ,
+  SENT2$constraining==SENT2$max_sent ~ 'constraining',
+  SENT2$litigious   ==SENT2$max_sent ~ 'litigious'   ,
+  SENT2$positive    ==SENT2$max_sent ~ 'positive'    ,
+  SENT2$uncertainty ==SENT2$max_sent ~ 'uncertainty' ,
+  #ENT2$superfluous ==SENT2$max_sent ~ 'superfluous' , # filtered out above
+  TRUE                               ~ 'no')
+
+
+```
+Words sentiment distribution over all texts:
+```{r ml0a, echo=FALSE, warning=FALSE}
+
+# evaluate number of sentiments
+tss <- t(colSums(SENT2[c("negative","constraining","litigious","uncertainty","positive")]))
+knitr::kable(tss, caption="\\label{tab:sent_country5}maximal sentiment counts over all words")
+#| negative| constraining| litigious| uncertainty| positive| superfluous|
+#|--------:|------------:|---------:|-----------:|--------:|-----------:|
+#|     2796|         1481|      1232|         788|      544|          11|
+# Rank   1            2          3             4         5             6
+
+if(FALSE) { # for debug - Save datasets to a file
+  saveRDS(SENT2     , "SENT2.rds")
+}
+
+############################################################################################################################
+############################################################################################################################
+# MACHINE LEARNING PART
+############################################################################################################################
+############################################################################################################################
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+## Machine Learning Approaches
+
+The following algorithms were used and investigated and searched for optimal parametrization and speed:  
+
+  * Naive-Bayes with no use of laplace parameter
+
+  * Naive-Bayes with search for optimal laplace parameter
+  
+  * Fast Naive-Bayes multinomial and Bernoulli method
+
+  * Support Vector Machines
+
+  * K nearest neighbor manual search for k
+  
+  * K nearest neigbour using the caret functionality to search the best k
+
+```{r ml0, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+####################################################\
+# merge sentiment to country via ISO3
+fci.qual     <- SENT2[c('ISO3','max_sentx')]     # max sent per country # ,'word'
+fci.txt.qual <- merge(x=t0,y=fci.qual,by="ISO3") # merge back to starting point / the multi-texts per country
+
+# =: ISO3:country:Detailtext:max.sentiment
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Prepare special data structures for the machine learner: the corpus.
+
+ corpus = here interpreted as the measure detail texts (=documents) per country
+ 
+ Build up the corpora from the countries corpus and perform a cleanup: remove numbers, stopwords, punctuation, white space and perform word stemming to prepare optimal comparability:^[https://stackoverflow.com/questions/9637278/r-tm-package-invalid-input-in-utf8towcs]
+ 
+ ** 3728 'documents' of 152 countries = 16.6MB of text **
+
+Three example corpus of the corpora: 
+
+```{r ml1a, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+fci.corpus <- VCorpus(VectorSource(fci.txt.qual$Detail))
+#typeof(fci.corpus) # list
+#print(fci.corpus)  # 3728 documents / 152 countries / 16.6MB
+#object.size(fci.corpus) # 16600568 bytes
+
+fci.corpus.clean <- fci.corpus %>%
+  tm_map(content_transformer(stri_trans_tolower)) %>%   # better than tolower because considers it’s / itâ€™s
+  tm_map(removeNumbers) %>%
+  tm_map(removeWords, stopwords()) %>%
+  tm_map(removePunctuation) %>%
+  tm_map(stemDocument) %>%
+  tm_map(stripWhitespace)
+
+for(i in 1:3){
+    print(as.character(fci.corpus[[i]]))
+    print(paste("  ",as.character(fci.corpus.clean[[i]])))
+}
+
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+
+### Create the Document-Term-Matrix (DTM), remove sparse terms
+ 
+ For the following algorithms a needed input type
+
+  * rows = indicate the text
+
+  * columns = indicate the words
+  
+  * cells = frequency of words in text
+
+  Remove those words from the DTM which are in "nearly all" documents - these do not help to cluster the words, called "remove sparse terms" ^[https://stackoverflow.com/questions/28763389/how-does-the-removesparseterms-in-r-work]
+
+```{r ml2, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+#?TermDocumentMatrix # simpler
+#?DocumentTermMatrix # more parameter, weighting function
+fci.dtm <- DocumentTermMatrix(fci.corpus.clean)
+#object.size(fci.dtm) # 1727816 bytes
+
+#?removeSparseTerms 
+fci.dtm <- removeSparseTerms(fci.dtm,0.99)
+#object.size(fci.dtm) # 0.5=240528 0.9=386056 0.99=1114296 0.99=1114296 0.995=1259192 bytes
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+### Visualize the cleaned / stemmed corpus
+
+With the following wordcloud the resulted corpora with the words and their frequency (=size of the word) is shown.
+The more in the middle a word is located, the more frequent the word is occurring in the corpora.
+
+```{r ml1b, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+```
+
+```{r res_corpus.clean, fig.width=6.5, fig.height=4, fig.align='center', fig.cap="Cleaned / stemmed corpus", tidy=F, echo=FALSE, warning=FALSE}
+
+wordcloud(fci.corpus.clean, min.freq = 80, random.order = FALSE)
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Separate into train- (80%) and testset (20%)
+
+ Separate and check that the test and train data are representative = have similar distribution
+
+```{r ml3a, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+set.seed(123L)
+random <- sample(nrow(fci.dtm), round(nrow(fci.dtm) * 0.8), replace = FALSE) 
+fci.dtm.train        <- fci.dtm[random,  ] # 80%
+fci.dtm.test         <- fci.dtm[-random, ] # 20%
+fci.dtm.train.labels <- as.factor(fci.txt.qual[random,  ]$max_sentx)
+fci.dtm.test.labels  <- as.factor(fci.txt.qual[-random, ]$max_sentx)
+
+# check that test and train data are representative = have similar distribution
+a = fci.dtm.train.labels %>% table %>% prop.table
+b = fci.dtm.test.labels  %>% table %>% prop.table
+df <- data.frame(train=a,test=b) %>%
+  mutate(delta_percent = round(10*(a-b)*100)/10)
+knitr::kable(df, caption="\\label{tab:test_train15}Frequency of test and train data are similar")
+
+# representative - no big delta!
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Reduce the number of features
+
+ To complete our data preprocessing, we reduce the number of features in our test and training DT Matrices.
+ To do this, we will use the findFreqTerms() function (again found in the tm package)
+ which filters out all words below specific frequency - here freq=5 - minimal 5 times a word must occur to be not filtered out.
+ 
+```{r ml4, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+min_freq=5   #50
+fci.dtm.train.freq <- fci.dtm.train %>% findFreqTerms(min_freq) %>% fci.dtm.train[ , .]
+fci.dtm.test.freq  <- fci.dtm.test  %>% findFreqTerms(min_freq) %>% fci.dtm.test[ , .]
+
+#object.size(fci.dtm)            # 1.7MB 2982 x 737 = 48447
+#object.size(fci.dtm.train)      # 1.4MB 48447 
+#object.size(fci.dtm.train.freq) # 1.2MB 50: 2982 x 322 = 37840
+
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+# result structure to find the maximum / best algorithm with best parameter
+V <- data.frame(t=NA, max=0, acc=0, timing=0)
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Naive-Bayes algorithm ^[https://datascienceplus.com/sentiment-analysis-with-machine-learning-in-r/]
+
+Now the data structures are prepared for the Naive-Bayes algorithm:
+
+ * convert the sparse Document-term-matrix from numeric to categorical “yes/no” matrices that the e1071-library-algorithm can process
+ 
+ * train model and check accuracy on test data (and measure time)
+ 
+ * use Naive-Bayes
+ 
+   a) without laplace parameter
+ 
+   b) with laplace parameter
+
+```{r ml5, echo=FALSE, warning=FALSE}
+
+#---------------------------------------------------------------------------------------------------------------------------------/
+```
+
+#### Naive-Bayes algorithm without using laplace (= 0)
+
+```{r ml5a, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+# Naive-Bayes without using laplace (= 0).
+V[1,c("t","max","acc","timing")] <- c("Naive-Bayes e1071   no laplace",0,0,0)
+#print(V[1,]$t)
+
+# prepare train and test data
+#  Note that, e1071 asks the response variable to be numeric or factor. 
+#  Thus, we convert characters to factors here. This is a little trick.
+convert_counts <- function(x) {   x <- ifelse(x > 0, "Yes", "No") }
+x  <- fci.dtm.train.freq %>% apply(MARGIN = 2, convert_counts)
+xl <- fci.dtm.train.labels
+t  <- fci.dtm.test.freq  %>% apply(MARGIN = 2, convert_counts)
+tl <- fci.dtm.test.labels
+
+# train model and check accuracy on test data (and measure time)
+max_par <- max_acc <- 0
+start_time   <- Sys.time()   # for timing\
+model          <- naiveBayes(x, xl) 
+pred           <- predict(model, t, type="class")
+confusionMatrix(pred, tl, dnn = c("Predicted", "Actual"),mode = "sens_spec")
+max_acc        <- confusionMatrix(pred, tl, dnn = c("Predicted", "Actual"),mode = "sens_spec")$overall[1]#$Accuracy
+end_time     <- Sys.time()   # for timing/
+
+print(sprintf("   best parameter:%02.2f - accuracy: %02.3f%%",max_par, 100*max_acc))
+V[1,c("max","acc","timing")] <- c(max_par,round(100*max_acc,2),round(difftime(end_time,start_time,units="secs"),2))
+
+if(FALSE) {
+  ct <- CrossTable(pred, tl, prop.chisq = FALSE, chisq = FALSE, 
+                   prop.t = FALSE,prop.r=FALSE,prop.c=FALSE,
+                   dnn = c("Predicted", "Actual"))
+  print("The diagonal shows the 'hit'  = correct prediction")
+  sum(diag(ct$t)) / sum(ct$t) # same as accuracy
+  #0.7292225 #0.8243968
+}
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+#### Naive-Bayes with laplace - some manual assumptions / trainings
+
+Loop with 8 different laplace parameter values
+
+```{r ml5b, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+# Naive-Bayes with laplace - some manual assumptions / trainings
+V[2,c("t","max","acc","timing")] <- c("Naive-Bayes e1071 with laplace",0,0,0)
+print(V[2,]$t)
+
+# train model and check accuracy on test data (and measure time)
+max_par <- max_acc <- 0
+start_time <- Sys.time()   # for timing\
+loop <- 0 # count in seq below for measure time
+for (par in c(0.01,0.02,0.05,0.10,0.20,0.50,0.75,1.00)) {  # we do not need 0.00 - that is done above - do an 8-loop to have it comparable
+  model <- naiveBayes(x, xl, laplace = par) # 0=0.6863 // 0.01=0.6970509 // 0.02=0.69437 // 0.1=0.655496 // 0.5=0.099)
+  pred  <- as.factor(predict(model, t, type="class"))
+  acc   <- confusionMatrix(pred,tl,dnn = c("Predicted", "Actual"),mode = "sens_spec")$overall[1] #$Accuracy
+  print(sprintf("        parameter:%2.2f - accuracy: %02.3f%%",par, 100*acc))
+  if(acc > max_acc) { 
+    max_par <- par
+    max_acc <- acc
+  }
+  loop <- loop + 1
+}
+end_time  <- Sys.time()     # for timing/
+#warnings()
+print(sprintf(  "   best parameter:%02.2f - accuracy: %02.3f%%", max_par,100*max_acc))
+V[2,c("max","acc","timing")] <- c(max_par,round(100*max_acc,2),round(difftime(end_time,start_time,units="secs")/1,2))  # 8-loop - check total time, /1 not /loop
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Two fast algorithms from Fast-Naive-Bayes-library used for the Document-Term-Matrix
+
+Now we are evaluating the Document-Term-Matrices with the same laplace parameter as above but with 2 fast algorithms from Fast-Naive-Bayes-library ^[https://cran.r-project.org/web/packages/fastNaiveBayes/vignettes/fastnaivebayes.html]
+
+Algorithms: 
+
+ * Multinomial
+ 
+ * Bernoulli
+ 
+Loop with 8 different laplace parameter values as above
+ 
+```{r ml6, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+V[3,c("t","max","acc","timing")] <- c("Fast Naive-Bayes multinomial",0,0,0)
+print(V[2,]$t)
+
+# prepare train and test data
+x  <- fci.dtm.train.freq # .freq  
+xl <- fci.dtm.train.labels
+t  <- fci.dtm.test.freq # .freq
+tl <- fci.dtm.test.labels
+
+# train model and check accuracy on test data (and measure time)
+max_par <- max_acc <- 0
+start_time <- Sys.time()   # for timing\
+loop <- 0 # count in seq below for measure time
+for (par in c(0.01,0.02,0.05,0.10,0.20,0.50,0.75,1.00)) {  # we do not need 0.00 - that is done above - do an 8-loop to have it comparable
+  model <- fnb.multinomial(x, xl, priors = NULL, laplace = par, sparse = FALSE)#, check = TRUE)
+  pred  <- suppressWarnings(predict(model, t))
+  acc   <- confusionMatrix(pred, tl, dnn = c("Predicted", "Actual"),mode = "sens_spec")$overall[1]
+  print(sprintf("        parameter:%02.2f - accuracy: %02.3f%%",par, 100*acc))
+  if(acc > max_acc) { 
+    max_par <- par
+    max_acc <- acc
+  }
+  loop <- loop + 1
+}
+end_time <- Sys.time()     # for timing/
+print(sprintf(  "   best parameter:%02.2f - accuracy: %02.3f%%", max_par,100*max_acc))
+V[3,c("max","acc","timing")] <- c(max_par,round(100*max_acc,2),round(difftime(end_time,start_time,units="secs")/1,2))  # 8-loop - check total time, /1 not /loop
+
+V[4,c("t","max","acc","timing")] <- c("Fast Naive-Bayes Bernoulli",0,0,0)
+print(V[3,]$t)
+
+# train model and check accuracy on test data (and measure time)
+max_par <- max_acc <- 0
+start_time <- Sys.time()   # for timing\
+loop <- 0 # count in seq below for measure time
+for (par in c(0.01,0.02,0.05,0.10,0.20,0.50,0.75,1.00)) {  # we do not need 0.00 - that is done above - do an 8-loop to have it comparable, take total time
+  model <- fnb.bernoulli( x, xl,               laplace = par)
+  pred  <- suppressWarnings(predict(model, t))
+  acc <- confusionMatrix(pred, tl, dnn = c("Predicted", "Actual"),mode = "sens_spec")$overall[1]
+  print(sprintf("        parameter:%02.2f - accuracy: %02.3f%%",par, 100*acc))
+  if(acc > max_acc) { 
+    max_par <- par
+    max_acc <- acc
+  }
+  loop <- loop + 1
+}
+end_time <- Sys.time()     # for timing/
+print(sprintf(  "   best parameter:%02.2f - accuracy: %02.3f%%", max_par,100*max_acc))
+V[4,c("max","acc","timing")] <- c(max_par,round(100*max_acc,2),round(difftime(end_time,start_time,units="secs")/1,2)) # 8-loop - check total time, /1 not /loop
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Document-Term-Matrix as input for a Support Vector Machine (SVM)
+
+These SVM shall be good for textual analysis: ^[https://rpubs.com/masmit11/533879] ^[https://stackoverflow.com/questions/40051542/text-classification-using-e1071-svm]
+ 
+```{r ml7, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+# Use the document term matrix. 
+#?e1071::svm
+V[5,c("t","max","acc","timing")] <- c("Support vector machines",0,0,0)
+print(V[5,]$t)
+
+# prepare train and test data
+x  <- fci.dtm.train#.freq # using freq does not work - "test data does not match model"
+xl <- fci.dtm.train.labels
+t  <- fci.dtm.test#.freq # .freq
+tl <- fci.dtm.test.labels
+
+# train model and check accuracy on test data (and measure time)
+max_par    <- max_acc <- 0
+start_time <- Sys.time()   # for timing\
+model        <- e1071::svm(x, xl, kernal = "linear")
+pred         <- predict(model, t)
+confusionMatrix(pred,tl,dnn = c("Predicted", "Actual"),mode = "sens_spec")
+max_acc      <- confusionMatrix(pred,tl,dnn = c("Predicted", "Actual"),mode = "sens_spec")$overall[1]
+end_time   <- Sys.time()   # for timing/
+
+print(sprintf(  "   best parameter:         accuracy: %02.3f%%",          100*max_acc))
+
+V[5,c("max","acc","timing")] <- c(max_par,round(100*max_acc,2),round(difftime(end_time,start_time,units="secs"),2))
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Document-Term-Matrix as input for K-Nearest-Neigbur algorithm (KNN):
+
+ "When using KNN for classification, it is best to assess odd numbers for k to avoid ties..."
+  ^[https://bradleyboehmke.github.io/HOML/knn.html]
+ 
+ Default value is: one neighbor - we test with 1/3/5/../15 neighbors - as above also 8 loop counts.
+ 
+```{r ml8, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+V[6,c("t","max","acc","timing")] <- c("K nearest neighbor loop approach",0,0,0)
+print(V[6,]$t)
+
+# prepare train and test data
+x  <- fci.dtm.train#.freq # using freq does not work - "test data does not match model"
+xl <- fci.dtm.train.labels
+t  <- fci.dtm.test#.freq # .freq
+tl <- fci.dtm.test.labels
+
+# train model and check accuracy on test data (and measure time)
+max_par    <- max_acc <- 0
+start_time <- Sys.time()   # for timing\
+loop <- 0 # count in seq below for measure time
+for (par in seq(1,15,2)) { # all other takes ages seq(1,15,4)) { # loop=4 * 240sec = 16min
+  pred <- knn(x, t, xl, k=par)  # parameter = number of neighbors
+  acc  <- confusionMatrix(pred, tl, dnn = c("Predicted", "Actual"),mode = "sens_spec")$overall[1]
+  print(sprintf("neighbours:%02d - accuracy: %02.3f%%", par, 100*acc))
+  if(acc > max_acc) { 
+    max_par <- par
+    max_acc <- acc
+  }
+  loop <- loop + 1
+}
+end_time <- Sys.time()     # for timing/
+print(sprintf(  "   best parameter:%02.2f - accuracy: %02.3f%%", max_par,100*max_acc))
+V[6,c("max","acc","timing")] <- c(max_par,round(100*max_acc,2),round(difftime(end_time,start_time,units="secs")/1,2))  # 8-loop - check total time, /1 not /loop
+
+# 13 is the optimum
+#[1] "neighbours:01 - accuracy: 78.150%"  #
+#[1] "neighbours:03 - accuracy: 80.161%"
+#[1] "neighbours:05 - accuracy: 81.099%"  #
+#[1] "neighbours:07 - accuracy: 80.697%"
+#[1] "neighbours:09 - accuracy: 80.563%"  #
+#[1] "neighbours:11 - accuracy: 80.697%"
+#[1] "neighbours:13 - accuracy: 81.367%"  #
+#[1] "neighbours:15 - accuracy: 81.233%"
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+### Optimize k (neighbors) with the caret library
+
+Finally use the caret library to evaluate automatically the optimal parameter k (number of neighbors).
+Here the Document-Term-Matrix has to be slightly adapted into binary form - instead of "yes"/"no" for KNN here it needs 0/1.
+ 
+```{r ml9, fig.width=6, fig.height=3, fig.align='center', fig.cap="knnFit-Results: optimal k value", tidy=F, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+V[7,c("t","max","acc","timing")] <- c("K nearest neighbor caret optimizer",0,0,0)
+print(V[7,]$t)
+
+set.seed(400)
+
+# prepare train and test data and the algorithms data structure
+# ?train
+convert_counts <- function(x) {  x <- ifelse(x > 0, 1, 0) }
+fci.train <- fci.dtm.train.freq %>% apply(MARGIN = 2, convert_counts)
+fci.test  <- fci.dtm.test.freq  %>% apply(MARGIN = 2, convert_counts)
+
+fci.train.1 <- cbind(cat=factor(fci.dtm.train.labels), fci.train)
+fci.train.1 <- fci.train.1[,-c(2,3,4,5,6,7)]  # remove funny words where alg. fails
+x  <- as.data.frame(fci.train.1)
+xl <- fci.dtm.train.labels
+
+# fit model and check accuracy on test data (and measure time)
+start_time <- Sys.time()   # for timing\
+knnFit <- train(x, xl, 
+                method = "knn", 
+                trControl = trainControl(method="cv"), 
+                preProcess = c("center","scale"),tuneLength = 5)
+end_time <- Sys.time()     # for timing/
+
+knnFit #%>% knitr::kable(caption="\\label{tab:knnfit}knnFit-Results: optimal k value")
+
+#  k  Accuracy   Kappa     
+#  5  0.8360085  0.24460417
+#  7  0.8397077  0.20628362
+#  9  0.8407144  0.16819036
+# 11  0.8383688  0.10909614
+# 13  0.8350175  0.05937574
+#
+# Accuracy was used to select the optimal model using the largest value.
+max_par <- knnFit$bestTune$k
+max_acc <- max(knnFit$results$Accuracy)
+plot(knnFit)
+
+V[7,c("max","acc","timing")] <- c(max_par,round(100*max_acc,2),round(difftime(end_time,start_time,units="secs"),2))
+colnames(V) <- c('Type of Machine learning','best parameter','Accuracy','timing(sec)')
+
+############################################################################################################################
+############################################################################################################################
+# RESULT PART
+############################################################################################################################
+############################################################################################################################
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+\newpage
+
+# Results
+
+## Maximum sentiment per country<br>
+ 
+As shown before the policies and measures related to Covid-19 with **negative sentiment** is prevailing,  
+followed by constraining and litigious sentiments.  
+Countries using mainly measures with uncertain or positive sentiments could nearly not be seen from this high perspective.   
+Policies and measures are not defined for all countries in the FCI-data (only for 156 of them).  
+These countries are greyed out in the following map ("NA").
+
+```{r res_FCISent3, fig.width=6.5, fig.height=4, fig.align='center', fig.cap="Max. sentiments per country", tidy=F, echo=FALSE, warning=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+ctry <- SENT2[c('ISO3','max_sentx')]
+world_map1 <- left_join(world_map2, ctry, by = "ISO3")  # so the trick to go via ISO3 - word_map2 is prepared
+#world_map1 <- world_map1 %>% filter(!is.na(max_sentx))    # %>% select(region) %>% unique()
+
+A  <- theme(axis.text.x = element_text(angle = 0, size = 9, hjust=1), # A-xis text
+            legend.background=element_rect(fill = alpha("white", 0.5)),
+            legend.text=element_text(size=8) , legend.key.size = unit(0.4, 'cm'),
+            legend.justification = c("right","top"), 
+            plot.title = element_text(size = 12))
+A1 <- theme(legend.position=c(0.18, 0.4))
+
+ggplot(world_map1, aes(x = long, y = lat, group = group)) + 
+  geom_polygon(aes(fill=max_sentx), colour = "white") + A + A1 +
+  labs(title="Max. sentiment per country")
+
+rm(A,B,C,D,E,F,L,T,tr,ts,tf,ti,p3,p4) 
+
+# display type and maximum sentiment total
+```
+Here as table the distribution on sentiment level per country:
+```{r ml0b, echo=FALSE, warning=FALSE}
+
+SENT2 %>% group_by(max_sentx) %>% summarise(count = n()) %>% knitr::kable(caption="\\label{tab:sent_country6}Maximal sentiment counts of countries")
+
+SENT2 %>% filter((max_sentx == 'positive')|(max_sentx == 'uncertainty')) %>% 
+  select(c('Country','max_sentx')) %>% knitr::kable(caption="\\label{tab:sent_country7}Very few Countries with mainly positive or uncertain measures")
+
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+\newpage
+
+## Sentiments, country groups and boxplots<br>
+
+The following diagrams show the word count of sentiment type per region, income level, and financial region.
+This shall demonstrate that the maximum sentiment of the countries can be considered as representative for the countries measure, the height and width of the more left boxes is more than that on the right side.  
+Example: top chart (per Region), left sentiment (negative), blue box (in Europe): ~25-80 negative words, median at ~62. The other blue boxes are much smaller, median around 25.
+
+```{r sent_country3, fig.width=6, fig.height=6.5, fig.align='center', tidy=F, echo=FALSE, warning=FALSE, fig.cap="Sentiment types per country group"}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+A <- theme(axis.text.x = element_text(angle = 0, size = 9, hjust=1), # A-xis text
+           legend.position=c(0.99, 0.99)    , legend.justification = c("right","top"),
+           legend.text=element_text(size=8) , legend.key.size = unit(0.3, 'cm'),
+           plot.title = element_blank()) # element_text(size = 12))
+B <- geom_boxplot()
+C <- geom_jitter(width=0.03,alpha=0.3) # jitter throws warnings unfort.
+L <- c("Sentiment type","count")
+T <- c("Word counts of sentiment type per","Ordered left to right by count")
+
+p1 <- ggplot(t5,aes(x=fct_reorder(sentiment,-n), y=n, fill=Region     )) + labs(x = element_blank(), y = L[2])
+# p2 # check per subregion makes it very noisy
+#p2 <- ggplot(tb,aes(x=fct_reorder(sentiment,-n), y=n, fill=SubRegion  ))+ labs(x = element_blank(), y = L[2])
+p3 <- ggplot(t5,aes(x=fct_reorder(sentiment,-n), y=n, fill=IncomeLevel)) + labs(x = element_blank(), y = L[2])
+p4 <- ggplot(t5,aes(x=fct_reorder(sentiment,-n), y=n, fill=FinRegion  )) + labs(x = L[1]           , y = L[2])
+
+grid.arrange(p1+A+B,p3+A+B,p4+A+B,ncol=1)
+
+rm(A,B,C,L,T,p1,p3,p4) 
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+\newpage
+
+## Machine Learning Ratings
+
+The following results were achieved during using different machine learning methods. 
+
+One can see the optimal parameter of the algorithms to get the shown accuracy within the shown time (in seconds).
+
+The best overall accuracy between these investigated algorithms can be achieved by the KNN method optimized by the caret library.
+
+A 100 times faster approach with only 2% less accuracy is the support vector machine method.
+
+```{r results, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
+
+V %>% knitr::kable()
+
+#---------------------------------------------------------------------------------------------------------------------------------\
+```
+
+# Conclusion
+
+The research questions of chapter 2 could be answered as follows:
+<br>  
+<br>
+Policy measures in the financial world related to the Covid-19 pandemic could be shown by budget^[Chapter 3.1] and measure level.
+Only a small subset of possible measures are activated.^[Chapter 3.2]
+<br>  
+<br>  
+The policies and measures sentiments are mainly negative, followed by constraining or litigious measures.
+With the word clouds we showed what these sentiment words mean in the financial world.
+Nearly no countries have mainly positive (1 country = Jamaika) or unsecure (2 countries) measures.^[Chapter 3.4]
+<br>  
+<br>  
+Common measures, regardless of region and income level are strongly focused on the banking sector - two of their measures cover 55% of all measures.
+Measures for the providers of the financial systems seem to be significantly more than for the customer of the financial systems - i.e. measures against insolvency seem to be underrepresented^[Chapter 3.2]
+<br>   
+<br>  
+Machine learning algorithms can be used to predict the sentiments of measures for the countries.
+The KNN algorithm delivers the most exact result, fast and slightly less exact is the SVM algorithm.^[Chapter 3.5]<br>   
+<br>  
+As next step one could investigate more in the grouping of the countries, to find a better grouping criterion for a pandemic beside fiscal or regional aspects.<br>  
+<br>  
+**Thank you for reading, I hope you have enjoyed it as much as I have enjoyed the exploring.**
+
+\newpage
+
+# Appendix
+
+## Abbreviations
+
+ |Abbreviation |Explanation
+ |:------------|:------------------------------------
+ |bn           | billion
+ |DTM          | Document-Term-Matrix
+ |FCI          | Finance, Competitiveness & Innovation defined by Worldbank
+ |FRED         | Federal Reserve Economic Data (FRED)
+ |KNN          | K-Nearest-Neighbour machine lerarning algorithm
+ |NBFI         | Non-bank financial intermediaries, i.e. pension funds, insurance companies, mutual funds, venture capital
+ |SRAF         | Software Repository Accounting and Finance, University of Notre Dame, IN, USA
+ |SVM          | Support vector machines machine lerarning algorithm
+ |WBI          | Worldbank Institute
+
+
+## References
+
+<div id="refs"></div>
+
+```{r summary, echo=FALSE}
+#---------------------------------------------------------------------------------------------------------------------------------/
