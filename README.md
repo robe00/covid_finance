@@ -13,8 +13,11 @@ The financial world seems to be the winner of the crisis.
 
 #############################
 
-I've seen there is an issue (on mac, had that not on windows) trying to download the data files, first attempt - the second attempt then worked,
-error messages:
+I've seen there is an issue (on mac, had that not on windows) trying to download the data files, first attempt - the second attempt worked.
+
+** I've downloaded the data files additional into the /data subdir **
+
+Error messages:
 
 URL 'https://development-data-hub-s3-public.s3.amazonaws.com/ddhfiles/936261/covid-fci-data.xlsx': status was 'SSL peer certificate or SSH remote key was not OK'
 
@@ -22,4 +25,4 @@ URL 'https://www.imf.org/en/Topics/imf-and-covid19/~/media/Files/Topics/COVID/FM
 
 URL 'https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv': status was 'SSL peer certificate or SSH remote key was not OK'
 
-** I've downloaded the data files additional into the /data subdir **
+
