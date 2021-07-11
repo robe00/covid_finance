@@ -183,7 +183,7 @@ rm(list=ls(all=T))
 pkg <- c("dplyr"   , "tidyverse"  , "tidytext"      , "tidyquant" ,"data.table" ,   
          "ggplot2" , "DiagrammeR" , "ggwordcloud"   , "wordcloud" , "gridExtra", 
          "readxl"  , 
-         "stringi" , "textdata"   , "countrycode",
+         "stringi" , "textdata"   , "countrycode"   ,
          "class"   , "e1071"      , "fastNaiveBayes", "RTextTools", "tm", "SparseM", "caret"
          )
 new.pkg <- pkg[!(pkg %in% installed.packages())] # if not installed => install
