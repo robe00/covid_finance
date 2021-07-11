@@ -28,7 +28,7 @@ rm(list=ls(all=T))
 pkg <- c("dplyr"   , "tidyverse"  , "tidytext"      , "tidyquant" ,"data.table" ,   
          "ggplot2" , "DiagrammeR" , "ggwordcloud"   , "wordcloud" , "gridExtra", 
          "readxl"  , 
-         "stringi" , "countrycode",
+         "stringi" , "textdata"   ,"countrycode",
          "class"   , "e1071"      , "fastNaiveBayes", "RTextTools", "tm", "SparseM", "caret"
          )
 new.pkg <- pkg[!(pkg %in% installed.packages())] # if not installed => install
@@ -228,12 +228,12 @@ if(FALSE) { # for debug - Save datasets to a file
 rm(fci0,fci1,fci2)
 #---------------------------------------------------------------------------------------------------------------------------------\
 ## ----prep_Fiscal2, echo=FALSE---------------------------------------------------------------------------------------------------------------------------------------
-fiscal2 %>% sample_n(5) #%>% select(c('Country','ISO3','Unit1','Budget','AddHealth','AddNonHealth'))%>%knitr::kable()
+#fiscal2 %>% sample_n(5) #%>% select(c('Country','ISO3','Unit1','Budget','AddHealth','AddNonHealth'))%>%knitr::kable()
 #knitr::kable(fiscal2[1:5,1:5], caption = "\\label{tab:fiscal0}Country Fiscal data")
 #fiscal2[1:5,1:5]
-print(paste("Fiscal data:",nrow(fiscal2),"rows x",length(fiscal2),"columns"))
+#print(paste("Fiscal data:",nrow(fiscal2),"rows x",length(fiscal2),"columns"))
 
-rm(fiscal1)
+#rm(fiscal1)
 
 #---------------------------------------------------------------------------------------------------------------------------------\
 ## ----prep_Country1, echo=FALSE--------------------------------------------------------------------------------------------------------------------------------------
@@ -328,11 +328,11 @@ t5 <- merge(x=t4,y=COUNTRY2,by="ISO3"  ) %>% unique() #,all=TRUE)  # country-wor
 t5 <- t5 %>% filter(!is.na(FinRegion))           # remove these without finregion
 t5 <- t5 %>% filter(sentiment != "superfluous")  # do not use superfluous, only very rare
 
-t6 <- merge(x=t5,y=fiscal3 ,by="Country"    ) %>% unique() #,all=TRUE)  #   => GDP
-low_n <- 10  # low water limit to keep it readable
-t7 <- t6 %>% # filter a few out to have it readable
-  filter(n>low_n) %>%
-  mutate(linenumber = row_number())  # linenumber to be able to rejoin later on
+#t6 <- merge(x=t5,y=fiscal3 ,by="Country"    ) %>% unique() #,all=TRUE)  #   => GDP
+#low_n <- 10  # low water limit to keep it readable
+#t7 <- t6 %>% # filter a few out to have it readable
+#  filter(n>low_n) %>%
+#  mutate(linenumber = row_number())  # linenumber to be able to rejoin later on
 
 
 # merge comparing Regions -----------------------------------------\
@@ -340,12 +340,12 @@ t7 <- t6 %>% # filter a few out to have it readable
 #--------------------------------------------------------------/
 
 # merge comparing Regions -----------------------------------------\
-t7 <- merge(x=t6,y=cr      ,by="Region"     ,all=TRUE) %>% unique() #,all=TRUE)  #   => countries per Region
-t8 <- merge(x=t7,y=cs      ,by="SubRegion"  ,all=TRUE) %>% unique() #,all=TRUE)  #   => countries per SubRegion
-t9 <- merge(x=t8,y=ci      ,by="IncomeLevel",all=TRUE) %>% unique() #,all=TRUE)  #   => countries per IncomeLevel
+#t7 <- merge(x=t6,y=cr      ,by="Region"     ,all=TRUE) %>% unique() #,all=TRUE)  #   => countries per Region
+#t8 <- merge(x=t7,y=cs      ,by="SubRegion"  ,all=TRUE) %>% unique() #,all=TRUE)  #   => countries per SubRegion
+#t9 <- merge(x=t8,y=ci      ,by="IncomeLevel",all=TRUE) %>% unique() #,all=TRUE)  #   => countries per IncomeLevel
 
 ###############################################\
-SENT1 <- t9  # t9 is the central result of sentiment analysis, all in
+#SENT1 <- t9  # t9 is the central result of sentiment analysis, all in
 ###############################################/
 
 if(FALSE) { # for debug - Save datasets to a file
